@@ -35,7 +35,7 @@ namespace Banco.Controllers
             _context.Add(objcuenta);
             _context.SaveChanges();
 
-            ViewData["Message"] = "Se registro la cuenta";
+            ViewData["Message"] = "Cuenta creada exitosamente";
             return View("Index");
         }
 

@@ -1,23 +1,33 @@
 
 @model Banco.Models.Cuenta
 <h2>Crear Cuenta Bancaria</h2>
+@using (Html.BeginForm("EnviarMensaje", "Cuenta", FormMethod.Post))
+{
+       <div class="form-group">
+        @Html.LabelFor(model => model.NombreTitular)
+        @Html.TextBoxFor(model => model.NombreTitular, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.NombreTitular)
+    </div>
 
-<form method="post">
-    <div>
-        <label for="accountHolderName">Nombre del Titular:</label>
-        <input id="accountHolderName" name="accountHolderName" type="text" />
+    <div class="form-group">
+        @Html.LabelFor(model => model.TipoCuenta)
+        @Html.TextBoxFor(model => model.TipoCuenta, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.TipoCuenta)
     </div>
-    <div>
-        <label for="accountType">Tipo de Cuenta:</label>
-        <input id="accountType" name="accountType" type="text" />
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.SaldoInicial)
+        @Html.TextAreaFor(model => model.SaldoInicial, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.SaldoInicial)
     </div>
-    <div>
-        <label for="initialBalance">Saldo Inicial:</label>
-        <input id="initialBalance" name="initialBalance" type="number" step="0.01" />
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Email)
+        @Html.TextAreaFor(model => model.Email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Email)
     </div>
-    <div>
-        <label for="email">Email:</label>
-        <input id="email" name="email" type="email" />
-    </div>
-    <button type="submit">Crear</button>
-</form>
+
+    <button type="submit" class="btn btn-primary">Enviar</button>
+}
+
+ <h1>@ViewData["Message"]</h1>
